@@ -12,6 +12,7 @@ public class Dialogue
     public string[] contexts;
 }
 
+[System.Serializable]
 public class DialogueEvent
 {
     public string name; // 대화 시나리오 이름?
