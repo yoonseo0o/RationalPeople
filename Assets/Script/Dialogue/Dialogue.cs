@@ -6,9 +6,9 @@ using UnityEngine;
 public class Dialogue
 {
     public int id;
-    public string name;
+    public Character.CharacterType character;
+    public Character.ExpressionType expression;
     public string[] contexts;
-    public string expression;
-    public string keyWord;
+    public string keyword;
     public int nextId;
 }
