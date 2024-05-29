@@ -9,8 +9,8 @@ public class Choices
 }
 public class Choice
 {
-    public string[] contexts;
-    public string character;
+    public string text;
+    public Character.CharacterType character;
     public int impactValue;
     public int nextDialogueId;
 }

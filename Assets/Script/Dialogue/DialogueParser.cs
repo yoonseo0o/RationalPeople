@@ -40,7 +40,7 @@ public class DialogueParser : MonoBehaviour
             dialogue.contexts = contextsList.ToArray();
             dialogueList.Add(dialogue);
         }
-        Debug.Log("Parsing Finish");
+        Debug.Log("Dialogue Parsing Finish");
         return dialogueList.ToArray();
     }
 }

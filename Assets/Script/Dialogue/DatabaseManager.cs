@@ -10,20 +10,27 @@ public class DatabaseManager : MonoBehaviour
     [SerializeField] string Dialogue_FileName;
     [SerializeField] string Choices_FileName;
     Dictionary<int, Dialogue> dialogueDic = new Dictionary<int, Dialogue>();
+    Dictionary<int, Choices> choicesDic = new Dictionary<int, Choices>();
 
     public static bool isFinish = false;
 
-    private void Awake()
+    private void Start()
     {
         if (instance == null)
         {
             instance = this;
-            DialogueParser theParser = GetComponent<DialogueParser>();
+            DialogueParser dialogueParser = GetComponent<DialogueParser>();
+            ChoicesParser choicesParser = GetComponent<ChoicesParser>();
 
-            Dialogue[] dialogues = theParser.Parse(Dialogue_FileName);
+            Dialogue[] dialogues = dialogueParser.Parse(Dialogue_FileName);
+            Choices[] choices = choicesParser.Parse(Choices_FileName);
             for (int i = 0; i < dialogues.Length; i++)
             {
                 dialogueDic.Add(dialogues[i].id, dialogues[i]);
+            }
+            for (int i = 0; i < choices.Length; i++)
+            {
+                choicesDic.Add(choices[i].id, choices[i]);
             }
             isFinish = true;
         }
@@ -31,5 +38,9 @@ public class DatabaseManager : MonoBehaviour
     public Dialogue GetDialogue(int _dialogueId)
     {
         return dialogueDic[_dialogueId];
+    }
+    public Choices GetChoices(int _choicesId)
+    {
+        return choicesDic[_choicesId];
     }
 }
